@@ -3,7 +3,10 @@ if [ -z "$_ENV_SETUP_COMPLETE" ]; then
 	declare -a env_scripts=(
 		"/opt/rh/rh-nodejs14/enable" # Node.js 14
 		"/opt/rh/rh-ruby23/enable"   # Ruby 2.3
-		"/opt/remi/php81/enable"     # PHP 8.1
+		# 2025-09-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Switch the version of PHP CLI from 8.1 to 7.4 (because Magento uses 7.4)":
+		# https://github.com/innomuebles/s/issues/2
+		"/opt/remi/php74/enable"
 	)
 	for script in "${env_scripts[@]}"; do
 		if [ -f "$script" ]; then
